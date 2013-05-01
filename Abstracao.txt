@@ -1,0 +1,35 @@
+SemInit
+	Recebe o id do semaforo
+	Recebe o valor de inicializacao
+	Usa uma funcao para pegar o semaforo por ID
+	Usa uma funcao para setar o valor do semaforo
+	Retorna 0 em caso de sucesso
+	Retorna -1 em caso de erro
+SemStatus
+	Recebe o id do semaforo
+	Recebe um vetor de processos
+	Usa uma funcao para pegar o semaforo por ID
+	Usa uma funcao para pegar o valor do semaforo
+	Usa uma funcao para colocar no vetor de processos recebido, os processos bloqueados pelo semaforo
+	Retorna valor do semaforo
+SemUp
+	Recebe o id do semaforo
+	Usa uma funcao para pegar o semaforo por ID
+	Usa uma funcao para indicar que a regiao critica daquele semaforo esta livre(-1)
+	Usa uma funcao para saber se a lista de processos bloqueados esta cheia
+	Se Sim
+	Usa uma funcao para desbloquear o primeiro processo bloqueado da lista
+	Retorna 0 em caso de sucesso
+	Retorna -1 em caso de erro
+SemDown
+	Recebe o id do semaforo
+	Usa uma funcao para pegar o semaforo por ID
+	Usa uma funcao para verificar se o semaforo estao livre(0)
+	Se Sim
+	Usa uma funcao para indicar que a regiao critica daquele semaforo esta ocupada(+1)
+	Se Nao
+	Usa uma funcao para adicionar o processe a lista de processos bloqueados do semaforo
+	Retorna 0 em caso de sucesso
+	Retorna -1 em caso de sucesso
+	
+	
