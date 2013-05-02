@@ -19,11 +19,15 @@ Conhecimento previo necessario
 2º Passo
 Criar 4 Chamadas de sistema
 
+Teorico Feito: Criacao_De_Chamadas.txt
+
 Conhecimento previo necessario
 	Como criar uma chamada de sistema
 
 3º Passo
 Colocar um servidor para tratar as chamadas
+
+Terico Feito: Criacao_De_Chamadas.txt(Colocar as chamadas na tabela de tratamanteos do servidor)
 
 Conhecimento previo necessario
 	Como um servidor trata as chamadas
