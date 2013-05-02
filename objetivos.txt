@@ -1,4 +1,4 @@
-SC
+﻿SC
 Objetivos:
 Criar 4 novas chamadas de sistema
   Down
@@ -7,6 +7,8 @@ Criar 4 novas chamadas de sistema
 	ini
 1º Passo
 Criar abstratamente as 4 chamadas, abstraindo tudo menos o que faria cada uma das 4 chamadas
+
+Feito : Abstracao.txt
 
 Conhecimento previo necessario
 	Como funciona uma chamada Down
