@@ -7,11 +7,13 @@ SemInit
 	Retorna -1 em caso de erro
 SemStatus
 	Recebe o id do semaforo
-	Recebe um vetor de processos
+	Recebe um ponteiro de inteiro para o valor do semaforo
+	Recebe um ponteiro de inteiro para a quantidade de processos bloqueados
 	Usa uma funcao para pegar o semaforo por ID
-	Usa uma funcao para pegar o valor do semaforo
-	Usa uma funcao para colocar no vetor de processos recebido, os processos bloqueados pelo semaforo
-	Retorna valor do semaforo
+	Usa uma funcao para pegar o valor do semaforo e armazena esse valor no ponteiro
+	Usa uma funcao para contar quantos processos bloqueados existem nesse semaforo e armazena essa quantidade no ponteiro
+	Retorna 0 em caso de sucesso
+	Retorna -1 em caso de erro
 SemUp
 	Recebe o id do semaforo
 	Usa uma funcao para pegar o semaforo por ID
