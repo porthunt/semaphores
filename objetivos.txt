@@ -1,10 +1,14 @@
 ﻿SC
 Objetivos:
+
 Criar 4 novas chamadas de sistema
   Down
-	Up
-	Status
-	ini
+  Up
+  Status
+  Ini
+
+/*********	FEITO	*********/	
+
 1º Passo
 Criar abstratamente as 4 chamadas, abstraindo tudo menos o que faria cada uma das 4 chamadas
 
@@ -16,26 +20,50 @@ Conhecimento previo necessario
 	Como funciona uma chamada Status
 	Como funciona uma chamada Ini
 
+/****************************/
+
+/*********	FEITO	*********/	
+
 2º Passo
-Criar 4 Chamadas de sistema
+Escolher os 4 numeros das chamadas de sistemas, e criar os prototipos de funcoes.
 
 Teorico Feito: Criacao_De_Chamadas.txt
 
 Conhecimento previo necessario
 	Como criar uma chamada de sistema
 
+/****************************/
+
+/*********	FEITO	*********/	
+
 3º Passo
-Colocar um servidor para tratar as chamadas
+Cadastrar as 4 chamadas nas chamadas tratadas pelo Servidor PM
+
+Números escolhidos:
+- 35: semInit
+- 44: semStatus
+- 56: semDown
+- 58: semUp
 
 Terico Feito: Criacao_De_Chamadas.txt(Colocar as chamadas na tabela de tratamanteos do servidor)
 
 Conhecimento previo necessario
 	Como um servidor trata as chamadas
+
+/****************************/	
+	
+/*********	TODO	*********/		
+	
 4º Passo
 Fazer com que o servidor armazene os semaforos
 
 Conhecimento previo necessario
 	Como fazer com que um servidor armazene semaforos
+	
+/****************************/	
+
+/*********	TODO	*********/	
+
 5ºPasso
 Fazer com que um servidor armazene filas de processos bloqueados, separando-as por semaforos
 
@@ -43,36 +71,57 @@ Conhecimento previo necessario
 	Como fazer para que um servidor guarde uma fila de processos
 	Como fazer para que um servidor guarde multiplas filas de processos
 	Como fazer para que um servidor guarde em uma unica fila um conjunto de processos especificos
+	
+/****************************/	
+
+/*********	TODO	*********/
 
 6º Passo
-Analisar como fazer passos 3 a 5 no servidor PM
-
-Conhecimento previo necessario
-	Estudo sobre o servidor PM
-7º Passo
 Criar verificação para ID do semaforo
 
 Conhecimento previo necessario
 	Como criar verificações de Id de processos
-8º Passo
+	
+/****************************/	
+
+/*********	TODO	*********/
+
+7º Passo
 Caso verificação falhe enviar mensagem de erro descrita no enunciado
 
 Conhecimento previo necessario
 	Como enviar mensagem de erro descrita no enunciado
-9º Passo
+	
+/****************************/	
+
+/*********	TODO	*********/
+
+8º Passo
 Usar funções de troca de mensagem,Mini_send,Mini_Rec,Mini_notify
 
 Conhecimento previo necessario
 	Conhecer como funciona Mini_send
 	Conhecer como funciona Mini_Rec
 	Conhecer como funciona Mini_notify
-10º Passo
+	
+/****************************/	
+
+/*********	TODO	*********/
+
+9º Passo
 Implementar chamadas de sistema Up,Down,Init,Status, utilizando as funções de troca de mensagem
 
 Conhecimento previo necessario
 	Espero que apenas passos de 1 ao 9
-11º passo
+	
+/****************************/	
+
+/*********	TODO	*********/
+
+10º passo
 Executar testes
 
 Conhecimento previo necessario
 	Planejamento de testes, buscando cobertura
+	
+/****************************/	
