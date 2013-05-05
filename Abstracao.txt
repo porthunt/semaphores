@@ -1,6 +1,8 @@
 SemInit
 	Recebe o id do semaforo
 	Recebe o valor de inicializacao
+	Verifica se o Id esta entre o intervalo valido
+	Verifica se o Semaforo ja foi inicializado
 	Usa uma funcao para pegar o semaforo por ID
 	Usa uma funcao para setar o valor do semaforo
 	Retorna 0 em caso de sucesso
@@ -9,6 +11,8 @@ SemStatus
 	Recebe o id do semaforo
 	Recebe um ponteiro de inteiro para o valor do semaforo
 	Recebe um ponteiro de inteiro para a quantidade de processos bloqueados
+	Verifica se o Id esta entre o intervalo valido
+	Verifica se o Semaforo ja foi inicializado
 	Usa uma funcao para pegar o semaforo por ID
 	Usa uma funcao para pegar o valor do semaforo e armazena esse valor no ponteiro
 	Usa uma funcao para contar quantos processos bloqueados existem nesse semaforo e armazena essa quantidade no ponteiro
@@ -16,8 +20,10 @@ SemStatus
 	Retorna -1 em caso de erro
 SemUp
 	Recebe o id do semaforo
+	Verifica se o Id esta entre o intervalo valido
+	Verifica se o Semaforo ja foi inicializado
 	Usa uma funcao para pegar o semaforo por ID
-	Usa uma funcao para indicar que a regiao critica daquele semaforo esta livre(-1)
+	Usa uma funcao para indicar que a regiao critica daquele semaforo esta livre(+1)
 	Usa uma funcao para saber se a lista de processos bloqueados esta cheia
 	Se Sim
 	Usa uma funcao para desbloquear o primeiro processo bloqueado da lista
@@ -25,10 +31,12 @@ SemUp
 	Retorna -1 em caso de erro
 SemDown
 	Recebe o id do semaforo
+	Verifica se o Id esta entre o intervalo valido
+	Verifica se o Semaforo ja foi inicializado
 	Usa uma funcao para pegar o semaforo por ID
 	Usa uma funcao para verificar se o semaforo estao livre(0)
 	Se Sim
-	Usa uma funcao para indicar que a regiao critica daquele semaforo esta ocupada(+1)
+	Usa uma funcao para indicar que a regiao critica daquele semaforo esta ocupada(-1)
 	Se Nao
 	Usa uma funcao para adicionar o processe a lista de processos bloqueados do semaforo
 	Retorna 0 em caso de sucesso

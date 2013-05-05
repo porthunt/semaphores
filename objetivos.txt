@@ -45,17 +45,23 @@ Números escolhidos:
 - 56: semDown
 - 58: semUp
 
-Terico Feito: Criacao_De_Chamadas.txt(Colocar as chamadas na tabela de tratamanteos do servidor)
+Feito: 
+do_semInit 35=SemInit
+do_semStatus 44=SemStatus
+do_semDown 56=SemDown
+do_semUp 58=SemUp
 
 Conhecimento previo necessario
 	Como um servidor trata as chamadas
 
 /****************************/	
 	
-/*********	TODO	*********/		
+/*********	FEITO	*********/		
 	
 4º Passo
 Fazer com que o servidor armazene os semaforos
+
+Feito: Struct Semaphores
 
 Conhecimento previo necessario
 	Como fazer com que um servidor armazene semaforos
@@ -74,13 +80,12 @@ Conhecimento previo necessario
 	
 /****************************/	
 
-/*********	TODO	*********/
+/*********	FEITO	*********/
 
 6º Passo
 Criar verificação para ID do semaforo
 
-Conhecimento previo necessario
-	Como criar verificações de Id de processos
+Feito Struct com Flag.
 	
 /****************************/	
 
