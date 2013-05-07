@@ -30,7 +30,7 @@ int do_semStatus (int SemaphoreID, int * Value, int * NimBlocked)
 	if (SemaphoreID >= 0 && SemaphoreID <= 9 && police[SemaphoreID]->flag == 0) 
 	{
 		Value = police[SemaphoreID]->value;
-		NimBlocked = /*count_list(SemaphoreID->procs);*/
+		NimBlocked = countList(SemaphoreID->procs);
 		return 0;
 	}
 	return -1;
@@ -41,7 +41,7 @@ int do_semUp (int SemaphoreID)
 	if (SemaphoreID >= 0 && SemaphoreID <= 9 && police[SemaphoreID]->flag == 0) 
 	{
 		police[SemaphoreID]->value += 1;
-		if (/*count_list(SemaphoreID->procs)*/ > 0)
+		if (countList(SemaphoreID->procs) > 0)
 		{
 			/* WAKEUP(police[SemaphoreID->procs->first) */
 		}
