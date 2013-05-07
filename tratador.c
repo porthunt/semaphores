@@ -2,14 +2,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "tratador.h"
+#include "list.h"
 
-typedef struct semaphore {
+struct semaphore {
 	int value;
 	int flag;
 	List * procs;
-} Sem;
+};
 
-Sem * police[10];
+Semaphore * police[10];
 
 int do_semInit (int SemaphoreID, int Value) 
 {
