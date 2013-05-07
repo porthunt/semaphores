@@ -7,27 +7,35 @@ struct list {
 	struct list * next;
 };
 
-int insertList (List * lst, int PID)
+List * insertList (List * lst, int PID)
 {
 	List * new_element = (List *) malloc(sizeof(List));
 	if (new_element!=NULL)
 	{
 		new_element->PID = PID;
 		new_element->next = lst;
-		return 0;
+		return new_element;
 	}
-	return -1;
+	return NULL;
 }
 
-int removeList (List * lst)
+List * removeList (List * lst, int PID)
 {
-	if (lst != NULL)
+	List * kill_element = (List *) malloc(sizeof(List));
+	List * tmp = lst;
+	List * nav;
+	
+	if (lst != NULL && kill_element != NULL)
 	{
-		// Retira do final ou do início? Se retirar
-		// do final, os processos mais antigos podem
-		// nunca serem executados.
+		while (tmp->prox->PID != PID)
+		{
+			nav = tmp;
+			tmp = tmp->prox;
+		}
+		//RETIRA
 	}
-	return -1;
+	
+	return kill_element;
 }
 
 int countList (List * lst)
