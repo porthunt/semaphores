@@ -61,7 +61,6 @@ int do_semDown (int SemaphoreID)
 		else
 		{
 			police[SemaphoreID]->value -= 1;
-			/* EXEC */
 		}
 		return 0;
 	}
