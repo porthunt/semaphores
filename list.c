@@ -2,10 +2,28 @@
 #include <stdlib.h>
 #include "list.h"
 
+/****************************************************************
+*																*
+*	Estrutura da lista de processos:							*
+*	PID: guarda o ID do projeto.								*
+*	next: guarda o ponteiro para o próximo elemento da lista.	*
+*																*
+****************************************************************/
+
 struct list {
 	int PID;
 	struct list * next;
 };
+
+/****************************************************************
+*																*
+*	Função: insertList											*
+*	Retorno: ponteiro para o novo final da lista.				*
+*	Parâmetros:													*
+*	lst: lista onde vai ser inserido.							*
+*	PID: ID do projeto a ser inserido na lista.					*
+*																*
+****************************************************************/
 
 List * insertList (List * lst, int PID)
 {
@@ -19,24 +37,44 @@ List * insertList (List * lst, int PID)
 	return NULL;
 }
 
-List * removeList (List * lst, int PID)
+/****************************************************************
+*																*
+*	Função: removeList											*
+*	Retorno: PID do processo que saiu da lista.					*
+*	Parâmetros:													*
+*	lst: lista de onde precisa ser retirado.					*
+*																*
+****************************************************************/
+
+int removeList (List * lst)
 {
-	List * kill_element = (List *) malloc(sizeof(List));
 	List * tmp = lst;
-	List * nav;
+	List * nav = tmp;
+	int PID=-1;
 	
-	if (lst != NULL && kill_element != NULL)
+	if (lst != NULL)
 	{
-		while (tmp->prox->PID != PID)
+		while (tmp->next != NULL)
 		{
 			nav = tmp;
-			tmp = tmp->prox;
+			tmp = tmp->next;
 		}
-		//RETIRA
+		nav->next = tmp->next;
+		PID = tmp->PID;
+		free(tmp);
+		return PID;
 	}
-	
-	return kill_element;
+	return PID;
 }
+
+/****************************************************************
+*																*
+*	Função: countList											*
+*	Retorno: número de processos dentro da lista.				*
+*	Parâmetros:													*
+*	lst: lista onde vai ser inserido.							*
+*																*
+****************************************************************/
 
 int countList (List * lst)
 {
