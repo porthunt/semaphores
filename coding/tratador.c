@@ -43,7 +43,7 @@ int do_semUp (int SemaphoreID)
 		police[SemaphoreID]->value += 1;
 		if (countList(SemaphoreID->procs) > 0)
 		{
-			/* WAKEUP(police[SemaphoreID->procs->first) */
+			/* WAKEUP(removeList(police[SemaphoreID->procs)); */
 		}
 		return 0;
 	}
