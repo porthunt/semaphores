@@ -1,0 +1,21 @@
+send
+struct proc caller quem eh o caller???
+endpoint_t dst_e 
+message &m
+
+receive
+struct proc caller
+endpoint_t source como obter o endpoint da chamada de sistema????
+message message buffer
+
+o que faz o notify??
+
+
+Tem quer dar os defines no se quiser usar os defines. 
+usr/src/include/minix/callnr.h
+e
+usr/include/minix/callnr.h
+
+
+Nao existe a pasta posix
+

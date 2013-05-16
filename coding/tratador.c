@@ -1,9 +1,14 @@
 /* 1011141 - 1010310 */
 
+/*Mudar os prototipos(tratador.h)*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "tratador.h"
 #include "list.h"
+#include "glo.h"
+#include "mproc.h"
+
+#define MAX 10
 
 struct semaphore {
 	int value;
@@ -11,56 +16,78 @@ struct semaphore {
 	List * procs;
 };
 
-Semaphore * police[10];
+Semaphore * sem[MAX];
 
-int do_semInit (int SemaphoreID, int Value) 
+int do_semInit (void) 
 {
-	if (SemaphoreID >= 0 && SemaphoreID <= 9 && police[SemaphoreID]->flag == 0) 
+	 int SemaphoreID, int Value;
+	 SemaphoreID= m_in.m1_i1;
+	 Value=m_in.m1_i2;
+	 
+	if ((SemaphoreID >= 0) && (SemaphoreID <= MAX-1) && (sem[SemaphoreID]->flag == 0)) 
 	{
-			police[SemaphoreID]->value = Value;
-			police[SemaphoreID]->procs = (List *) malloc(sizeof(List));
-			police[SemaphoreID]->flag = 1;
+			sem[SemaphoreID]->value = Value;
+			sem[SemaphoreID]->procs = (List *) malloc(sizeof(List));
+			sem[SemaphoreID]->flag = 1;
 			return 0;
 	}
 	return -1;
 }
 
-int do_semStatus (int SemaphoreID, int * Value, int * NimBlocked)
+int do_semStatus (void)
 {
-	if (SemaphoreID >= 0 && SemaphoreID <= 9 && police[SemaphoreID]->flag == 0) 
+	message m;
+	int SemaphoreID,Value,NimBlocked;
+	SemaphoreID=m_in.m1_i1;
+	
+	if ((SemaphoreID >= 0) && (SemaphoreID <= MAX-1) && (sem[SemaphoreID]->flag == 1)) 
 	{
-		Value = police[SemaphoreID]->value;
+		Value = sem[SemaphoreID]->value;
 		NimBlocked = countList(SemaphoreID->procs);
+		m.m1_i1=Value;
+		m.m1_i2=NimBlocked;
+		/*Send message(proc,endpoint,message)*/
+		
 		return 0;
 	}
 	return -1;
 }
 
-int do_semUp (int SemaphoreID)
+int do_semUp (void)
 {
-	if (SemaphoreID >= 0 && SemaphoreID <= 9 && police[SemaphoreID]->flag == 0) 
+	int SemaphoreID;
+	SemaphoreID= m_in.m1_i1;
+	if ((SemaphoreID >= 0) && (SemaphoreID <= MAX-1) && (sem[SemaphoreID]->flag == 1)) 
 	{
-		police[SemaphoreID]->value += 1;
+		sem[SemaphoreID]->value += 1;
 		if (countList(SemaphoreID->procs) > 0)
 		{
+<<<<<<< HEAD
 			/* WAKEUP(removeList(police[SemaphoreID->procs)); */
+=======
+			int id= removeList(sem[SemaphoreID]->procs);
+			mproc[id]->mp_flags = UNPAUSED;
+>>>>>>> mudamos coisa pra caralho
 		}
 		return 0;
 	}
 	return -1;
 }
 
-int do_semDown (int SemaphoreID)
+int do_semDown (void)
 {
-	if (SemaphoreID >= 0 && SemaphoreID <= 9 && police[SemaphoreID]->flag == 0) 
+	int SemaphoreID;
+	SemaphoreID= m_in.m1_i1;
+	if ((SemaphoreID >= 0) && (SemaphoreID <= MAX-1) && (sem[SemaphoreID]->flag == 1))
 	{
-		if (police[SemaphoreID]->value == 0)
+		if (sem[SemaphoreID]->value == 0)
 		{
-			/* SLEEP(GETPID) */
+			mproc[who_p]->mp_flags = PAUSED;
+			sem[SemaphoreID]->procs=insertList(sem[Semaphore]->procs, who_p);
 		}
 		else
 		{
-			police[SemaphoreID]->value -= 1;
+			sem[SemaphoreID]->value -= 1;
 		}
 		return 0;
 	}
