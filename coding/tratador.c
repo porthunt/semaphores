@@ -1,6 +1,4 @@
 /* 1011141 - 1010310 */
-
-/*Mudar os prototipos(tratador.h)*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "tratador.h"
@@ -62,12 +60,8 @@ int do_semUp (void)
 		sem[SemaphoreID]->value += 1;
 		if (countList(SemaphoreID->procs) > 0)
 		{
-<<<<<<< HEAD
-			/* WAKEUP(removeList(police[SemaphoreID->procs)); */
-=======
 			int id= removeList(sem[SemaphoreID]->procs);
 			mproc[id]->mp_flags = UNPAUSED;
->>>>>>> mudamos coisa pra caralho
 		}
 		return 0;
 	}
@@ -83,7 +77,7 @@ int do_semDown (void)
 		if (sem[SemaphoreID]->value == 0)
 		{
 			mproc[who_p]->mp_flags = PAUSED;
-			sem[SemaphoreID]->procs=insertList(sem[Semaphore]->procs, who_p);
+			sem[SemaphoreID]->procs=insertList(sem[SemaphoreID]->procs, who_p);
 		}
 		else
 		{
